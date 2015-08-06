@@ -43,7 +43,7 @@ main
 ###Now it’s time to tear apart the old site and change into a voting app.
 
 
-*Starting with the DB data: server/api/thing/thing.model.js*
+**Starting with the DB data: server/api/thing/thing.model.js**
 
 ```
 var ThingSchema = new Schema({
@@ -53,7 +53,7 @@ var ThingSchema = new Schema({
   active: Boolean
 });
 ```
->*Now its time to change the seed.js: server/config/seed.js*
+**Now its time to change the seed.js: server/config/seed.js**
 
 ```
 Thing.create({
@@ -70,7 +70,7 @@ Thing.create({
     info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
   });
 ```
->*Now it’s time to change the main.html: client/app/main/main.html*
+**Now it’s time to change the main.html: client/app/main/main.html**
 
 ```
 div class="InfoBar">
@@ -82,7 +82,7 @@ div class="InfoBar">
     </div>
 </div>
 ```
-And also change the main.css accordingly. 
+>And also change the main.css accordingly. 
 
 ###Now we are done with the main landing page and it’s time to set the poll dashboard.
 
