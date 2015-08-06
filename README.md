@@ -84,6 +84,6 @@ And also change the main.css accordingly.
 
 ###Now we are done with the main landing page and it’s time to set the poll dashboard.
 
-##Creating a new route:
+##Creating a new route:S
 
 
