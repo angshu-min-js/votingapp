@@ -43,7 +43,7 @@ main
 ###Now it’s time to tear apart the old site and change into a voting app.
 
 
-##Starting with the DB data: server/api/thing/thing.model.js
+*Starting with the DB data: server/api/thing/thing.model.js*
 
 ```
 var ThingSchema = new Schema({
