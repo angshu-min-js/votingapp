@@ -1,6 +1,6 @@
 #This is a guide for the Basejump: Voting App
 
-Let’s start off with the scaffold mean app:
+Let’s start off by scaffolding the mean app using Yo:
 
 1.	Start the cloud 9  workspace
 ```
