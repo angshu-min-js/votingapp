@@ -8,7 +8,7 @@ Let’s start off with the scaffold mean app:
 ```
 This would clean your workspace and scaffolds the angular-fullstack application
 
-3.	Let’s create start the mongoDB and create the data directory
+3.	Let’s create & start the mongoDB and also create the data directory
 
 ```
 $ mkdir data && echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod && chmod a+x mongod && ./mongod
@@ -43,7 +43,7 @@ main
 ###Now it’s time to tear apart the old site and change into a voting app.
 
 
-**Starting with the DB data: server/api/thing/thing.model.js**
+**Starting with the DB schema: server/api/thing/thing.model.js**
 
 ```
 var ThingSchema = new Schema({
