@@ -1,0 +1,26 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>VotePlex</h1>
+    <p class="lead">Create custom polls with live results.</p>
+    <a href="/signup" class="btn btn-lg btn-success">Sign Up</a>
+  </div>
+</header>
+
+<div class="InfoBar">
+  <div class="row">
+      <ul class="col-lg-4 col-md-4 col-sm-4" ng-repeat="thing in awesomeThings">
+       <i class="{{thing.icon}}"></i>
+        <h2>{{thing.name}}</h2>
+        <p>{{thing.info}}</p>
+    </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>FreeCodeCamp Basejump |
+        <a href="https://twitter.com/ang682">@ang682</a> |
+         <a href="https://github.com/codingang">Angshuman Gupta</a></p>
+  </div>
+</footer>
