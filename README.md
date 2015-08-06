@@ -14,6 +14,7 @@ This would clean your workspace and scaffolds the angular-fullstack application
 $ mkdir data && echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod && chmod a+x mongod && ./mongod
 ```
 ##The project structure
+```
 Let’s take a moment to look at the project so far so we have a good idea where everything is.
 ├── client
 │   ├── app                 - All of our app specific components go in here
@@ -37,6 +38,7 @@ main
 ├── main.html               - Our view
 ├── main.js                 - Registers the route
 └── main.css               - Our styles
+```
 
 ###Now it’s time to tear apart the old site and change into a voting app.
 
@@ -84,6 +86,6 @@ And also change the main.css accordingly.
 
 ###Now we are done with the main landing page and it’s time to set the poll dashboard.
 
-##Creating a new route:S
+##Creating a new route:
 
 
