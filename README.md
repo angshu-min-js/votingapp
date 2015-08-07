@@ -86,6 +86,29 @@ div class="InfoBar">
 
 ###Now we are done with the main landing page and it’s time to set the poll dashboard.
 
-##Creating a new route:
+##Adding the New Polls & My Polls functionalities
+
+###Checking the user login by using the Auth function
+
+```
+//main.controller.js
+$scope.isLoggedIn = Auth.isLoggedIn;
+```
+
+```
+//main.html
+
+<div class="container" ng-hide="isLoggedIn()">
+    <h1>VotePlex</h1>
+    <p class="lead">Create custom polls with live results.</p>
+    <a href="/signup" class="btn btn-lg btn-success">Sign Up</a>
+  </div>
+  <div class="container" ng-show="isLoggedIn()">
+    <h1>Dashboard</h1>
+    <p class="lead">What would you like to do today?</p>
+    <button ng-click="setPage('newPoll')" class="btn btn-lg btn-success">New Polls</button> <button ng-click="setPage('myPolls')" class="btn btn-lg btn-primary">My Polls</button>
+  </div>
+```
+##Creating a new route for newPoll, myPolls:
 
 
