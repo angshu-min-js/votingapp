@@ -109,6 +109,23 @@ $scope.isLoggedIn = Auth.isLoggedIn;
     <button ng-click="setPage('newPoll')" class="btn btn-lg btn-success">New Polls</button> <button ng-click="setPage('myPolls')" class="btn btn-lg btn-primary">My Polls</button>
   </div>
 ```
-##Creating a new route for newPoll, myPolls:
+##Creating new directives for newPoll and myPolls:
 
 
+1. yo angular-fullstack:directive newPolls
+2. yo angular-fullstack:directive myPolls
+
+**Adding the buttons and directives in the main page**
+
+```
+<div class="container" ng-show="isLoggedIn()">
+    <h1>Dashboard</h1>
+    <p class="lead">What would you like to do today?</p>
+    <button ng-click="page = 'newPoll'" class="btn btn-lg btn-success">New Polls</button> <button ng-click="page = 'myPolls'" class="btn btn-lg btn-primary">My Polls</button>
+  </div>
+  
+ <my-polls ng-show="page === 'myPolls'"></my-polls>
+ <new-poll ng-show="page === 'newPoll'"></new-poll>
+```
+
+##Creating new API endpoints

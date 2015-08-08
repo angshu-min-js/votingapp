@@ -9,11 +9,11 @@
   <div class="container" ng-show="isLoggedIn()">
     <h1>Dashboard</h1>
     <p class="lead">What would you like to do today?</p>
-    <button ng-click="setPage('newPoll')" class="btn btn-lg btn-success">New Polls</button> <button ng-click="setPage('myPolls')" class="btn btn-lg btn-primary">My Polls</button>
+    <button ng-click="page = 'newPoll'" class="btn btn-lg btn-success">New Polls</button> <button ng-click="page = 'myPolls'" class="btn btn-lg btn-primary">My Polls</button>
   </div>
 </header>
 
-<div class="InfoBar">
+<div class="InfoBar" ng-hide="isLoggedIn()">
   <div class="row">
       <ul class="col-lg-4 col-md-4 col-sm-4" ng-repeat="thing in awesomeThings">
        <i class="{{thing.icon}}"></i>
@@ -21,6 +21,9 @@
         <p>{{thing.info}}</p>
     </div>
 </div>
+
+ <my-polls ng-show="page === 'myPolls'"></my-polls>
+ <new-polls ng-show="page === 'newPoll'"></new-polls>
 
 <footer class="footer">
   <div class="container">
