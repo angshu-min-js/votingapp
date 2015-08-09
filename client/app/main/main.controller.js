@@ -5,6 +5,11 @@ angular.module('workspaceApp')
     $scope.awesomeThings = [];
     $scope.isLoggedIn = Auth.isLoggedIn;
 
+//display all polls
+      $http.get('/api/polls'). success(function(polls) {
+      $scope.polls = polls;
+    });
+
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
     });

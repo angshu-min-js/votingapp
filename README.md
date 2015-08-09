@@ -37,7 +37,7 @@ main
 ├── main.controller.spec.js - Our test
 ├── main.html               - Our view
 ├── main.js                 - Registers the route
-└── main.css               - Our styles
+└── main.css                - Our styles
 ```
 
 ###Now it’s time to tear apart the old site and change into a voting app.
@@ -49,8 +49,7 @@ main
 var ThingSchema = new Schema({
   icon: String,
   name: String,
-  info: String,
-  active: Boolean
+  info: String
 });
 ```
 **Now its time to change the seed.js: server/config/seed.js**
@@ -112,8 +111,13 @@ $scope.isLoggedIn = Auth.isLoggedIn;
 ##Creating new directives for newPoll and myPolls:
 
 
-1. yo angular-fullstack:directive newPolls
-2. yo angular-fullstack:directive myPolls
+1. $ yo angular-fullstack:directive newPolls
+2. $ yo angular-fullstack:directive myPolls
+
+##Creating newPoll route:
+
+$ yo angular-fullstack:route newPolls
+
 
 **Adding the buttons and directives in the main page**
 
@@ -129,3 +133,45 @@ $scope.isLoggedIn = Auth.isLoggedIn;
 ```
 
 ##Creating new API endpoints
+
+$ yo angular-fullstack:endpoint poll
+
+**Making the Poll Schema**
+```
+  user_name: String,
+  poll_title: String,
+  poll_options: Array,
+  poll_results: Array,
+  poll_votes: Array,
+  poll_voters: Array
+```
+**Adding pole_name and user_name routers in the Poll Index**
+
+```
+router.get('/:user_name/:poll_name', controller.show);
+```
+
+**Showing all polls controller**
+
+```
+exports.show = function(req, res) {
+  //for all polls
+  if (req.params.poll_name === 'all') {
+    Poll.find({'user_name': req.params.user_name}, function(err, poll) {
+      if(err) { return handleError(res, err); }
+      if(!poll) { return res.send(404); }
+      return res.json(poll);
+    });
+  // Return single poll
+  } else {
+    Poll.find({'user_name': req.params.user_name, 'poll_name': req.params.poll_name}, function(err, poll) {
+      if(err) { return handleError(res, err); }
+      if(!poll) { return res.send(404); }
+      return res.json(poll);
+    });
+  }
+};
+```
+
+##Interfacing between backend and frontend:
+
