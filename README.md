@@ -1,12 +1,14 @@
-#This is a guide for the Basejump: Voting App
+#This is a guide for the Basejump: Voting App (reverse engineering http://voteplex.herokuapp.com/)
 
 Let’s start off by scaffolding the mean app using Yo:
 
 1.	Start the cloud 9  workspace
+
+2. Install yo, grunt, grunt-cli, generator-angular-fullstack 
 ```
-2.	$ rm -rf * && echo "export NODE_PATH=$NODE_PATH:/home/ubuntu/.nvm/v0.10.35/lib/node_modules" >> ~/.bashrc && source ~/.bashrc && npm install -g yo grunt grunt-cli generator-angular-fullstack && yo angular-fullstack
+$ rm -rf * && echo "export NODE_PATH=$NODE_PATH:/home/ubuntu/.nvm/v0.10.35/lib/node_modules" >> ~/.bashrc && source ~/.bashrc && npm install -g yo grunt grunt-cli generator-angular-fullstack && yo angular-fullstack
 ```
-This would clean your workspace and scaffolds the angular-fullstack application
+*This would clean your workspace and scaffolds the angular-fullstack application*
 
 3.	Let’s create & start the mongoDB and also create the data directory
 
@@ -105,7 +107,7 @@ $scope.isLoggedIn = Auth.isLoggedIn;
   <div class="container" ng-show="isLoggedIn()">
     <h1>Dashboard</h1>
     <p class="lead">What would you like to do today?</p>
-    <button ng-click="setPage('newPoll')" class="btn btn-lg btn-success">New Polls</button> <button ng-click="setPage('myPolls')" class="btn btn-lg btn-primary">My Polls</button>
+    <button ng-click="page = 'newPoll'" class="btn btn-lg btn-success">New Polls</button> <button ng-click="page = 'myPolls'" class="btn btn-lg btn-primary">My Polls</button>
   </div>
 ```
 ##Creating new directives for newPoll and myPolls:
@@ -138,6 +140,7 @@ $ yo angular-fullstack:endpoint poll
 
 **Making the Poll Schema**
 ```
+//poll.model.js
   user_name: String,
   poll_title: String,
   poll_options: Array,
@@ -148,7 +151,8 @@ $ yo angular-fullstack:endpoint poll
 **Adding pole_name and user_name routers in the Poll Index**
 
 ```
-router.get('/:user_name/:poll_name', controller.show);
+//index.js
+router.get('/:user_name/:poll_title', controller.show);
 ```
 
 **Showing all polls controller**
